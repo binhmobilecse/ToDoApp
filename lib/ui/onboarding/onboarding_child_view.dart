@@ -82,7 +82,25 @@ class OnboardingChildView extends StatelessWidget {
   }
 
   Widget _buildContent() {
-    return Container();
+    return Container(
+      padding: EdgeInsets.only(left: 16, right: 16),
+      child: Column(
+        children: [
+          SizedBox(height: 50),
+          Text(
+            "Manage your tasks",
+            style: TextStyle(color: Colors.white, fontSize: 32),
+          ),
+          SizedBox(height: 42),
+          Text(
+            "You can easily manage all of your daily tasks in DoMe for free",
+            style:
+                TextStyle(color: Colors.white.withOpacity(0.87), fontSize: 16),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildNextPrevButton() {
