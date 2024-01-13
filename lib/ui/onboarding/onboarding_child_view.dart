@@ -15,10 +15,6 @@ class OnboardingChildView extends StatelessWidget {
             children: [
               _buildSkipButton(),
               _buildImages(),
-              const SizedBox(
-                width: 50,
-                height: 20,
-              ),
               _buildIndicators(),
               _buildContent(),
               _buildNextPrevButton(),
@@ -52,46 +48,50 @@ class OnboardingChildView extends StatelessWidget {
   }
 
   Widget _buildIndicators() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          width: 27,
-          height: 4,
-          decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(56))),
-        ),
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          width: 27,
-          height: 4,
-          decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.7),
-              borderRadius: const BorderRadius.all(Radius.circular(56))),
-        ),
-        Container(
-          width: 27,
-          height: 4,
-          decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.7),
-              borderRadius: const BorderRadius.all(Radius.circular(56))),
-        ),
-      ],
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 50),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            width: 27,
+            height: 4,
+            decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.all(Radius.circular(56))),
+          ),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 8),
+            width: 27,
+            height: 4,
+            decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.7),
+                borderRadius: const BorderRadius.all(Radius.circular(56))),
+          ),
+          Container(
+            width: 27,
+            height: 4,
+            decoration: BoxDecoration(
+                color: Colors.white.withOpacity(0.7),
+                borderRadius: const BorderRadius.all(Radius.circular(56))),
+          ),
+        ],
+      ),
     );
   }
 
   Widget _buildContent() {
     return Container(
-      padding: EdgeInsets.only(left: 16, right: 16),
+      margin: EdgeInsets.symmetric(horizontal: 58),
       child: Column(
         children: [
-          SizedBox(height: 50),
           Text(
             "Manage your tasks",
             style: TextStyle(color: Colors.white, fontSize: 32),
           ),
-          SizedBox(height: 42),
+          SizedBox(
+            height: 32,
+          ),
           Text(
             "You can easily manage all of your daily tasks in DoMe for free",
             style:
@@ -104,6 +104,29 @@ class OnboardingChildView extends StatelessWidget {
   }
 
   Widget _buildNextPrevButton() {
-    return Container();
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 18).copyWith(top: 200),
+      child: Row(children: [
+        TextButton(
+            onPressed: () {},
+            child: Text(
+              "BACK",
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.44),
+                fontSize: 16,
+              ),
+            )),
+        Spacer(),
+        TextButton(
+            onPressed: () {},
+            child: const Text(
+              "PREVIOUS",
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+              ),
+            )),
+      ]),
+    );
   }
 }
