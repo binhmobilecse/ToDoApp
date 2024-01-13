@@ -3,8 +3,13 @@ import 'package:fluttertodoapp/utils/OnboardingPagePosition.dart';
 
 class OnboardingChildView extends StatelessWidget {
   final OnboardingPagePosition pagePosition;
+  final VoidCallback nextAction;
+  final VoidCallback backAction;
 
-  const OnboardingChildView({super.key, required this.pagePosition});
+  const OnboardingChildView({super.key,
+    required this.pagePosition,
+    required this.nextAction,
+    required this.backAction});
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +126,9 @@ class OnboardingChildView extends StatelessWidget {
       child: Row(
         children: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              backAction();
+            },
             child: Text(
               "BACK",
               style: TextStyle(
@@ -132,7 +139,9 @@ class OnboardingChildView extends StatelessWidget {
           ),
           const Spacer(),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              nextAction();
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.blue,
               shape: RoundedRectangleBorder(
