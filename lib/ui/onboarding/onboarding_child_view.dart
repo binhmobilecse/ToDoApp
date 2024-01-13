@@ -17,6 +17,7 @@ class OnboardingChildView extends StatelessWidget {
               _buildImages(),
               _buildIndicators(),
               _buildContent(),
+              Spacer(), // Sử dụng Spacer để đẩy nút xuống dưới cùng
               _buildNextPrevButton(),
             ],
           ),
@@ -82,21 +83,23 @@ class OnboardingChildView extends StatelessWidget {
 
   Widget _buildContent() {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 58),
+      margin: const EdgeInsets.symmetric(horizontal: 30),
       child: Column(
         children: [
-          Text(
+          const Text(
             "Manage your tasks",
             style: TextStyle(color: Colors.white, fontSize: 32),
           ),
-          SizedBox(
+          const SizedBox(
             height: 32,
           ),
-          Text(
-            "You can easily manage all of your daily tasks in DoMe for free",
-            style:
-                TextStyle(color: Colors.white.withOpacity(0.87), fontSize: 16),
-            textAlign: TextAlign.center,
+          Container(
+            child: Text(
+              "You can easily manage all of your daily tasks in DoMe for free",
+              style: TextStyle(
+                  color: Colors.white.withOpacity(0.87), fontSize: 16),
+              textAlign: TextAlign.center,
+            ),
           ),
         ],
       ),
@@ -105,9 +108,10 @@ class OnboardingChildView extends StatelessWidget {
 
   Widget _buildNextPrevButton() {
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 18).copyWith(top: 200),
-      child: Row(children: [
-        TextButton(
+      margin: const EdgeInsets.symmetric(horizontal: 18, vertical: 50),
+      child: Row(
+        children: [
+          TextButton(
             onPressed: () {},
             child: Text(
               "BACK",
@@ -115,18 +119,24 @@ class OnboardingChildView extends StatelessWidget {
                 color: Colors.white.withOpacity(0.44),
                 fontSize: 16,
               ),
-            )),
-        Spacer(),
-        TextButton(
+            ),
+          ),
+          const Spacer(),
+          ElevatedButton(
             onPressed: () {},
-            child: const Text(
-              "PREVIOUS",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16,
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(4),
               ),
-            )),
-      ]),
+            ),
+            child: const Text(
+              "NEXT",
+              style: TextStyle(fontSize: 16, color: Colors.white),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
