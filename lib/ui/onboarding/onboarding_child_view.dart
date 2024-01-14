@@ -25,7 +25,7 @@ class OnboardingChildView extends StatelessWidget {
               _buildImages(),
               _buildIndicators(),
               _buildContent(),
-              Spacer(), // Sử dụng Spacer để đẩy nút xuống dưới cùng
+              const Spacer(), // Sử dụng Spacer để đẩy nút xuống dưới cùng
               _buildNextPrevButton(),
             ],
           ),
@@ -58,7 +58,7 @@ class OnboardingChildView extends StatelessWidget {
 
   Widget _buildIndicators() {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 50),
+      margin: const EdgeInsets.symmetric(vertical: 50),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -69,7 +69,7 @@ class OnboardingChildView extends StatelessWidget {
                 color: pagePosition.getIndicator() == 0
                     ? Colors.white
                     : Colors.white.withOpacity(0.7),
-                borderRadius: BorderRadius.all(Radius.circular(56))),
+                borderRadius: const BorderRadius.all(Radius.circular(56))),
           ),
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 8),
@@ -102,18 +102,16 @@ class OnboardingChildView extends StatelessWidget {
         children: [
           Text(
             pagePosition.getTitle(),
-            style: TextStyle(color: Colors.white, fontSize: 32),
+            style: const TextStyle(color: Colors.white, fontSize: 32),
           ),
           const SizedBox(
             height: 32,
           ),
-          Container(
-            child: Text(
-              pagePosition.getContent(),
-              style: TextStyle(
-                  color: Colors.white.withOpacity(0.87), fontSize: 16),
-              textAlign: TextAlign.center,
-            ),
+          Text(
+            pagePosition.getContent(),
+            style: TextStyle(
+                color: Colors.white.withOpacity(0.87), fontSize: 16),
+            textAlign: TextAlign.center,
           ),
         ],
       ),
@@ -150,7 +148,7 @@ class OnboardingChildView extends StatelessWidget {
             ),
             child: Text(
               pagePosition.getIndicator() == 2 ? "GET STARTED" : "NEXT",
-              style: TextStyle(fontSize: 16, color: Colors.white),
+              style: const TextStyle(fontSize: 16, color: Colors.white),
             ),
           ),
         ],
